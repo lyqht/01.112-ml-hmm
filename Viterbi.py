@@ -29,7 +29,7 @@ def viterbi(n,unique_word_list):
                 
             scorelist.append(max(store))
             store=[]
-            
+    return scorelist
 
     
 def emission(word):
