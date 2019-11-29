@@ -20,7 +20,7 @@ def viterbi(unique_word_list):
             for k in range(num_nodes_per_col): #for each node
                 #score per node = prevnode*emission*transition
                 for l in range(num_nodes_per_col): #for 1 node, transition from prev node to current node
-                    prev_node = scorelist[j][l]
+                    prev_node = scorelist[l][j]
                     curr_emission = emission(nodes()[k],unique_word_list[j+1])
                     curr_transition = transmission(nodes()[l],nodes()[k])
                     score_per_node[l] = prev_node*curr_emission*curr_transition
