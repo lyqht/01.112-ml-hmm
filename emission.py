@@ -32,7 +32,7 @@ def emission(node,word,x_dict):
         if detector == 1:
             score=0   #this means that this node is not the correct node.
         else:
-            replaced_text = ("#UNK# ",node)
+            replaced_text = "#UNK#",node
             if replaced_text in emission_dict.keys():
                 score = emission_dict[replaced_text] #if label have #unk#
             else:
