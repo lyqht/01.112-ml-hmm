@@ -29,12 +29,14 @@ def emission(node,word,x_dict):
             missing_pair = word,o
             if missing_pair in emission_dict.keys(): #
                 detector = 1 # to detect if word exist in dictionary.
+                break
         if detector == 1:
             score=0   #this means that this node is not the correct node.
         else:
             replaced_text = "#UNK#",node
             if replaced_text in emission_dict.keys():
                 score = emission_dict[replaced_text] #if label have #unk#
+                
             else:
                 score = 0   #if label does not have #unk#, then set to 0.
     else:
