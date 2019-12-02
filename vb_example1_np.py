@@ -1,4 +1,5 @@
 import numpy as np 
+
 def viterbi(unique_word_list):
     #This is for the starting for viterbi
     num_nodes_per_col = len(nodes())
@@ -59,7 +60,6 @@ def transmission(x1,x2):
 
 def nodes():
     return ["A","B"]
-    #return ["x","y","Z"]
 
 unl=["the","dog","the"]
 print(viterbi(unl))
