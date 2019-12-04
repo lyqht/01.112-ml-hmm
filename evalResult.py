@@ -228,12 +228,26 @@ def compare_observed_to_predicted(observed, predicted):
 separator = ' '
 outputColumnIndex = 1
 for x in ["AL", "EN", "CN","SG"]:
-  print("\nComparing Viterbi output for {}".format(x))
-  gold = open("output/{}/dev.out".format(x), "r", encoding="UTF-8")
-  prediction = open("output/{}/dev.p3.out".format(x), "r", encoding="UTF-8")
-  observed = get_observed(gold)
-  predicted = get_observed(prediction)
-  compare_observed_to_predicted(observed, predicted)
+  print("\n ----------- Evaluation Results for **{}**------------".format(x))
+  print("*Part 2*")
+  try:
+    gold = open("output/{}/dev.out".format(x), "r", encoding="UTF-8")
+    prediction = open("output/{}/dev.p2.out".format(x), "r", encoding="UTF-8")
+    observed = get_observed(gold)
+    predicted = get_observed(prediction)
+    compare_observed_to_predicted(observed, predicted)
+  except IOError:
+    print("dev.p2.out not present")
+  
+  print("\n*Part3*")
+  try:
+    gold = open("output/{}/dev.out".format(x), "r", encoding="UTF-8")
+    prediction = open("output/{}/dev.p3.out".format(x), "r", encoding="UTF-8")
+    observed = get_observed(gold)
+    predicted = get_observed(prediction)
+    compare_observed_to_predicted(observed, predicted)
+  except IOError:
+    print("dev.p3.out not present")
 
 # #column separator
 
