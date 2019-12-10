@@ -250,7 +250,7 @@ for x in ["AL", "EN", "CN","SG"]:
     print("dev.p3.out not present")
   
   try:
-    print("\n*Part4*")
+    print("\n*Part4 - Only printing the evalScript results for best path*")
     gold = open("output/{}/dev.out".format(x), "r", encoding="UTF-8")
     prediction = open("output/{}/dev.p4.out".format(x), "r", encoding="UTF-8")
     observed = get_observed(gold)
@@ -258,13 +258,3 @@ for x in ["AL", "EN", "CN","SG"]:
     compare_observed_to_predicted(observed, predicted)
   except IOError:
     print("dev.p4.out not present")
-  try:
-    print("\n*Part5*")
-    gold = open("output/{}/dev.out".format(x), "r", encoding="UTF-8")
-    prediction = open("output/{}/dev.p4.out".format(x), "r", encoding="UTF-8")
-    observed = get_observed(gold)
-    predicted = get_observed(prediction)
-    compare_observed_to_predicted(observed, predicted)
-  except IOError:
-    print("dev.p5.out not present")
-

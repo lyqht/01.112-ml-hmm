@@ -216,55 +216,26 @@ def compare_observed_to_predicted(observed, predicted):
 
 ##############Main Function##################
 
-# if len(sys.argv) < 3:
-#     print ('Please make sure you have installed Python 3.4 or above!')
-#     print ("Usage on Windows:  python evalResult.py gold predictions")
-#     print ("Usage on Linux/Mac:  python3 evalResult.py gold predictions")
-#     sys.exit()
+if len(sys.argv) < 3:
+    print ('Please make sure you have installed Python 3.4 or above!')
+    print ("Usage on Windows:  python evalResult.py gold predictions")
+    print ("Usage on Linux/Mac:  python3 evalResult.py gold predictions")
+    sys.exit()
 
-# gold = open(sys.argv[1], "r", encoding='UTF-8')
-# prediction = open(sys.argv[2], "r", encoding='UTF-8')
+gold = open(sys.argv[1], "r", encoding='UTF-8')
+prediction = open(sys.argv[2], "r", encoding='UTF-8')
 
+#column separator
 separator = ' '
+
+#the column index for tags
 outputColumnIndex = 1
-for x in ["AL", "EN", "CN","SG"]:
-  print("\n ----------- Evaluation Results for **{}**------------".format(x))
-  try:
-    print("*Part 2*")
-    gold = open("output/{}/dev.out".format(x), "r", encoding="UTF-8")
-    prediction = open("output/{}/dev.p2.out".format(x), "r", encoding="UTF-8")
-    observed = get_observed(gold)
-    predicted = get_observed(prediction)
-    compare_observed_to_predicted(observed, predicted)
-  except IOError:
-    print("dev.p2.out not present")
-  
-  try:
-    print("\n*Part3*")
-    gold = open("output/{}/dev.out".format(x), "r", encoding="UTF-8")
-    prediction = open("output/{}/dev.p3.out".format(x), "r", encoding="UTF-8")
-    observed = get_observed(gold)
-    predicted = get_observed(prediction)
-    compare_observed_to_predicted(observed, predicted)
-  except IOError:
-    print("dev.p3.out not present")
-  
-  try:
-    print("\n*Part4*")
-    gold = open("output/{}/dev.out".format(x), "r", encoding="UTF-8")
-    prediction = open("output/{}/dev.p4.out".format(x), "r", encoding="UTF-8")
-    observed = get_observed(gold)
-    predicted = get_observed(prediction)
-    compare_observed_to_predicted(observed, predicted)
-  except IOError:
-    print("dev.p4.out not present")
-  try:
-    print("\n*Part5*")
-    gold = open("output/{}/dev.out".format(x), "r", encoding="UTF-8")
-    prediction = open("output/{}/dev.p4.out".format(x), "r", encoding="UTF-8")
-    observed = get_observed(gold)
-    predicted = get_observed(prediction)
-    compare_observed_to_predicted(observed, predicted)
-  except IOError:
-    print("dev.p5.out not present")
+#Read Gold data
+observed = get_observed(gold)
+
+#Read Predction data
+predicted = get_predicted(prediction)
+
+#Compare
+compare_observed_to_predicted(observed, predicted)
 

@@ -8,7 +8,6 @@ def viterbi(unique_word_list):
     path=[] #in the book this is E
     pathpn=[]
 
-
     #This is for the start
     for i in range(len(nodes)):
         score_at_start = np.log(emission(nodes[i],unique_word_list[0]))+np.log(transition("START",nodes[i]))
